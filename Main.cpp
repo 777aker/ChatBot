@@ -8,6 +8,9 @@
 //ease of life
 using namespace std;
 
+//variables so that we are passing ints instead of strings which is a lot faster
+const int NOUN = 1, VERB = 2, ADJ = 3;
+
 //this struct is a letter node used used in the keyword trie
 struct letterNode {
   //the letter at this node
@@ -29,18 +32,18 @@ struct wordNode {
   //trieIdentifier, trieType, endScore all correlate to letterNode's type, identifier, score
   //this is one of the variables to help determine what type of sentence it is, and therefore whether or not
   //to use this trie
-  int trieIdentifier;
+  int wordIdentifier;
   //this is the second identifier to determine which response trie to use
-  int trieType;
+  int wordType;
   //this will be the score of the word that ends the sentence, for example -1 means this is a negative statement
   int endScore;
   //these are all the next nodes
   vector<wordNode> adjacents;
 };
 
-class keywordsTrie {
+class KeywordsTrie {
 public:
-  //
+  //find a word and update the class's score, type, and identifier for passing to responsetrie
   bool findWord(String wordToFind) {
     //return false if word not found
     //return true if word found, and update the
@@ -52,13 +55,49 @@ public:
   void removeWord(String word) {
 
   } //each of the above methods will split the word into characters itself
+  void takeInSentence(String userInput) {
+    //split up by word and pass each word into findWord
+  }
   //these are the variables to pass to the responsesTrie
   int score;
   int type;
   int identifier;
 };
 
-class responsesTrie {
+class responseHandler {
 public:
+  //pick which trie to use based on score, type, and identifier
+  void pickTrie() {
+    //also prints out the response to the user
 
+  }
+  //the keywordstrie will update the variables for use
+  void updateVariables(int s, int t, int i) {
+
+  }
+  //a vector of all the tries
+  vector<wordNode> responseTries;
+  int score, type, identifier;
 };
+
+int main(int argc, char* argv[]) {
+  //when we get into testing, we will use argv to input user files of random inputs
+    //then we can save the data from "chats". good for showing progress
+
+  //first read in words known file
+  readKeywords();
+  //start taking in user input
+
+
+
+  //before exiting save the keywordstrie in case user added or deleted words
+  saveKeywords();
+}
+
+void saveKeywords() {
+
+}
+
+void readKeywords() {
+
+}
