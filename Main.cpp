@@ -44,18 +44,19 @@ struct wordNode {
 class KeywordsTrie {
 public:
   //find a word and update the class's score, type, and identifier for passing to responsetrie
-  bool findWord(String wordToFind) {
+  bool findWord(string wordToFind) {
     //return false if word not found
     //return true if word found, and update the
     //score, type, identifier
+    return false;
   }
-  void addWord(String word) {
+  void addWord(string word) {
     //adds a word to the trie
   }
-  void removeWord(String word) {
+  void removeWord(string word) {
 
   } //each of the above methods will split the word into characters itself
-  void takeInSentence(String userInput) {
+  void takeInSentence(string userInput) {
     //split up by word and pass each word into findWord
   }
   //these are the variables to pass to the responsesTrie
@@ -66,6 +67,10 @@ public:
 
 class responseHandler {
 public:
+  //constructor and initialization of responseHandler
+  responseHandler() {
+
+  }
   //pick which trie to use based on score, type, and identifier
   void pickTrie() {
     //also prints out the response to the user
@@ -73,31 +78,66 @@ public:
   }
   //the keywordstrie will update the variables for use
   void updateVariables(int s, int t, int i) {
-
+    score = s;
+    type = t;
+    identifier = i;
+    pickTrie();
   }
   //a vector of all the tries
   vector<wordNode> responseTries;
   int score, type, identifier;
 };
 
-int main(int argc, char* argv[]) {
-  //when we get into testing, we will use argv to input user files of random inputs
-    //then we can save the data from "chats". good for showing progress
-
-  //first read in words known file
-  readKeywords();
-  //start taking in user input
-
-
-
-  //before exiting save the keywordstrie in case user added or deleted words
-  saveKeywords();
-}
-
-void saveKeywords() {
+//add keyword to the file, string word, i = identifier, t = type, s = score
+void addKeyword(String word, int i, int t, int s) {
 
 }
 
 void readKeywords() {
 
+    ifstream myfile("keywords.txt");
+    if(myfile.is_open()) {
+        //read the file
+        string line;
+
+        while(getline(myfile, line)) {
+            stringstream ss;
+            ss<<line;
+            string word;
+            while(getline(ss, word, ' ')) {  //this gives me one word
+
+                //if(!isStopWord(word, ignoreWords))
+            }
+        }
+    }
+    myfile.close();
 }
+
+
+
+int main(int argc, char* argv[]) {
+
+    //when we get into testing, we will use argv to input user files of random inputs
+        //then we can save the data from "chats". good for showing progress
+
+    //first read in words known file
+    readKeywords();
+    //start taking in user input
+
+
+
+    //before exiting save the keywordstrie in case user added or deleted words
+
+    saveKeywords();
+
+    return 0;
+}
+
+/*
+    string response = "";
+    cout << "type a letter" << endl;
+    getline(cin, response);
+
+    letterNode t1(response, "noun", 2);
+    cout << t1.letter << endl;
+*/
