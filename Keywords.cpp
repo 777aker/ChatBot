@@ -49,25 +49,21 @@ public:
   //constructor
   KeywordsTrie() {
     readKeywords();
-  }
-  //find a word and update the class's score, type, and identifier for passing to responsetrie
-  bool findWord(string wordToFind) {
-    //return false if word not found
-    //return true if word found, and update the
-    //score, type, identifier
-    return false;
+    Responding responder();
   }
   void addWord(string word, int i, int t) {
-    //adds a word to the trie
+    //adds a word to the trie and txt file
   }
+  //remove a word from the keywords trie and txt file
   void removeWord(string word) {
 
-  } //each of the above methods will split the word into characters itself
-  void takeInSentence(string userInput) {
-    //split up by word and pass each word into findWord
   }
-  //these are the variables to pass to the responsesTrie
-  int score;
-  int type;
-  int identifier;
+  //take in the users response
+  void takeInSentence(string userInput) {
+
+  }
+  //int that stores each words type in order
+  int sentenceStructore;
+  //int that sotres each words identifier in order
+  int sentenceIdentifier;
 };
