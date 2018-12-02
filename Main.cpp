@@ -10,8 +10,9 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
+  //initialize the keyword
   KeywordsTrie keyWordsObj();
-
+  //now start taking in input stuff 
   return 0;
 }
 

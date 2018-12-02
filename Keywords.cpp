@@ -51,6 +51,11 @@ public:
     readKeywords();
     Responding responder();
   }
+  void findWord(String word) {
+    //find word then update type and identifier to this words for use by takeInSentence
+    //wordType = the guys you found type
+    //wordIdentifier = the guy you found identifier 
+  }
   void addWord(string word, int i, int t) {
     //adds a word to the trie and txt file
   }
@@ -60,10 +65,18 @@ public:
   }
   //take in the users response
   void takeInSentence(string userInput) {
-
+    //find a word in the keyword trie, and add that words type int
+    //to end of sentence structure and its identifier to the end
+    //of sentenceIdentifier int
+    //findword(first word);
+    //example: sentenceStructore = sentenceStructore*10 + wordType;
+    //example: sentenceIdentifier = sentenceIdentifier*10 + wordIdentifier;
   }
   //int that stores each words type in order
   int sentenceStructore;
   //int that sotres each words identifier in order
   int sentenceIdentifier;
+  //word identifier and type for use by guys
+  int wordType;
+  int wordIdentifier;
 };
