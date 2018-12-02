@@ -11,7 +11,7 @@
 using namespace std;
 
 //variables so that we are passing ints instead of strings which is a lot faster
-const int NOUN = 1, VERB = 2, ADJECTIVE = 3, ADVERB = 4, OBJECT = 5;
+const int NOUN = 1, VERB = 2, ADJECTIVE = 3, ADVERB = 4, OBJECT = 5, MULTIPLIER = 6;
 
 //this struct is a letter node used used in the keyword trie
 struct letterNode {
@@ -30,6 +30,7 @@ public:
   //constructor
   KeywordsTrie();
   //finds a word for use by takeInSentence
+  //unnecisary words will be 0 so they dont affect my sentence computations
   void findWord(string word);
   //adds a word to keyword trie and txt file
   void addWord(string word, int i, int t);

@@ -16,18 +16,23 @@ KeywordsTrie::KeywordsTrie() {
   readKeywords();
   Responding responder();
 }
+
 void KeywordsTrie::findWord(string word) {
   //find word then update type and identifier to this words for use by takeInSentence
   //wordType = the guys you found type
   //wordIdentifier = the guy you found identifier
 }
+
+//adds a word to the trie and txt file
 void KeywordsTrie::addWord(string word, int i, int t) {
-  //adds a word to the trie and txt file
+
 }
+
 //remove a word from the keywords trie and txt file
 void KeywordsTrie::removeWord(string word) {
 
 }
+
 //take in the users response
 void KeywordsTrie::takeInSentence(string userInput) {
   //find a word in the keyword trie, and add that words type int
@@ -36,7 +41,9 @@ void KeywordsTrie::takeInSentence(string userInput) {
   //findword(first word);
   //example: sentenceStructore = sentenceStructore*10 + wordType;
   //example: sentenceIdentifier = sentenceIdentifier*10 + wordIdentifier;
+  //then once done with every word responder.respond(sentenceStructore+sentenceIdentifier);
 }
+
 //read the key words from a file
 void KeywordsTrie::readKeywords() {
 

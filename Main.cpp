@@ -13,6 +13,8 @@ int main(int argc, char* argv[]) {
   //initialize the keyword
   KeywordsTrie keyWordsObj();
   //now start taking in input stuff
+  //send it to keyWordsObj.takeInSentence
+  
   return 0;
 }
 
