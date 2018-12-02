@@ -10,8 +10,8 @@
 
 using namespace std;
 
-//variables so that we are passing ints instead of strings which is a lot faster
-const int NOUN = 1, VERB = 2, ADJECTIVE = 3, ADVERB = 4, OBJECT = 5, MULTIPLIER = 6;
+//variables to help us and pass ints because ints are much faster to use than a string
+const int NOUN = 1, VERB = 2, ADJECTIVE = 3, ADVERB = 4, MULTIPLIER = 5, QUESTION = 6, PREVIOUS = 7;
 
 //this struct is a letter node used used in the keyword trie
 struct letterNode {

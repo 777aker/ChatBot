@@ -15,7 +15,7 @@ public:
   //also reads in the responses.txt and put them into the hash table
   Responding();
   //picks which sentence to use and responds
-  void respond(int sentence);
+  void respond(int sentenceStructure, int sentenceIdentifier);
 };
 
-#endif 
+#endif

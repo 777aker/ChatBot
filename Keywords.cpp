@@ -21,6 +21,7 @@ void KeywordsTrie::findWord(string word) {
   //find word then update type and identifier to this words for use by takeInSentence
   //wordType = the guys you found type
   //wordIdentifier = the guy you found identifier
+  //if its type is 7, then use the previous noun data not this words
 }
 
 //adds a word to the trie and txt file
@@ -41,7 +42,7 @@ void KeywordsTrie::takeInSentence(string userInput) {
   //findword(first word);
   //example: sentenceStructore = sentenceStructore*10 + wordType;
   //example: sentenceIdentifier = sentenceIdentifier*10 + wordIdentifier;
-  //then once done with every word responder.respond(sentenceStructore+sentenceIdentifier);
+  //then once done with every word responder.respond(sentenceStructore, sentenceIdentifier);
 }
 
 //read the key words from a file

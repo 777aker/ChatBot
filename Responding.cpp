@@ -13,6 +13,6 @@ Responding::Responding() {
 
 }
 
-void Responding::respond(int sentence) {
+void Responding::respond(int sentenceStructure, int sentenceIdentifier) {
 
 }
