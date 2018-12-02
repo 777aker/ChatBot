@@ -3,20 +3,16 @@
 #include <fstream>
 #include <list>
 #include <vector>
+#include "Responding.hpp"
 //all the imports we may need
 
 //ease of life
 using namespace std;
 
-class Responding {
-public:
-  //constructor and initialization of responseHandler
-  Responding() {
-    //read in the responses.txt and put them into the hash table
+Responding::Responding() {
 
-  }
-  //picks which sentence to use
-  void respond(int sentence) {
+}
 
-  }
-};
+void Responding::respond(int sentence) {
+
+}
