@@ -43,7 +43,7 @@ string convert(string sentence) {
 
 int main(int argc, char* argv[]) {
   //initialize the keyword
-  KeywordsTrie keyWordsObj();
+  KeywordsTrie keyWordsObj;
   printSentence("Hello! Welcome to Kelley's and Lara's bot thing.");
   printSentence("To add a new word to what I know, type \"add word\", then follow my instructions.");
   printSentence("To remove a word I know, type \"remove word\", then follow my instructions.");
@@ -56,71 +56,64 @@ int main(int argc, char* argv[]) {
     string input;
     getline(cin, input);
     input = convert(input);
-    switch(input) {
-      case "bye":
-        printSentence("Fine, bye.");
-        quit = true;
-      break;
-      case "goodbye":
-        printSentence("Ok then, goodbye.");
-        quit = true;
-      break;
-      case "add word":
-        printSentence("What word would you like to add?");
-        //the word, its type, and identifier
-        string word;
-        int type;
-        int identifier;
-        getline(cin, word);
-        printSentence("Is it a synonym to anything? Type yes or no please.")
+    if(input == "bye") {
+      printSentence("Fine, bye.");
+      quit = true;
+    } else if(input == "goodbye") {
+      printSentence("Ok then, goodbye.");
+      quit = true;
+    } else if(input == "add word") {
+      printSentence("What word would you like to add?");
+      string word;
+      int type;
+      int identifier;
+      getline(cin, word);
+      printSentence("Is it a synonym to anything? Type yes or no please.");
+      getline(cin, input);
+      if(input == "yes") {
+        printSentence("What word is it a synonym to?");
         getline(cin, input);
-        if(input == "yes") {
-          printSentence("What word is it a synonym to?");
+        keyWordsObj.synonym(word, input);
+        printSentence("Ok cool, thanks.");
+      } else {
+        printSentence("Ok, is it a noun, verb, adjective, or adverb?");
+        getline(cin, input);
+        if(input == "noun") {
+          type = 1;
+          identifier = (rand()%6) + 2;
+        } else if(input == "verb") {
+          type = 2;
+          identifier = (rand()%9) + 1;
+        } else if(input == "adjective") {
+          type = 3;
+          printSentence("From 0 to 9, how bad or good is its connotation?");
+          printSentence("0 would be very naughty word, 9 such a compliment :).");
           getline(cin, input);
-          keyWordsObj.synonym(word, input);
-          printSentence("Ok cool, thanks.");
+          identifier = stoi(input);
+        } else if(input == "adverb") {
+          type = 4;
+          printSentence("From 0 to 9, how bad or good is its connotation?");
+          printSentence("0 would be very naughty word, 9 such a compliment :).");
+          getline(cin, input);
+          identifier = stoi(input);
         } else {
-          printSentence("Ok, is it a noun, verb, adjective, or adverb?");
-          getline(cin, input);
-          switch(input) {
-            case "noun":
-              type = 1;
-              identifier = (rand()%6) + 2;
-              break;
-            case "verb":
-              type = 2;
-              identifier = (rand()%9) + 1;
-              break;
-            case "adjective":
-              type = 3;
-              printSentence("From 0 to 9, how bad or good is its connotation?");
-              printSentence("0 would be very naughty word, 9 such a compliment :).")
-              getline(cin, stoi(identifier));
-              break;
-            case "adverb":
-              type = 4;
-              printSentence("From 0 to 9, how bad or good is its connotation?");
-              printSentence("0 would be very naughty word, 9 such a compliment :).")
-              getline(cin, stoi(identifier));
-              break;
-            default:
-              printSentence("That was not an option. I'll just make it something random.")
-              type = rand()%8;
-              identifier = (rand()%8)+2;
-              break;
-          }
-          printSentence("Ok, added " + input + ".")
+          printSentence("That was not an option. I'll just make it something random.");
+          type = rand()%8;
+          identifier = (rand()%8)+2;
         }
-      break;
-      case "remove word":
-        printSentence("What word would you like me to forget, fooorrreeevvvvveeeerrrrr.");
-        getline(cin, input);
-        keyWordsObj.removeWord(input);
-        printSentence("Ok, removed " + input + ".");
-      break;
-      default:
-        keyWordsObj.takeInSentence(input);
-      break;
+        keyWordsObj.addWord(word, type, identifier);
+        printSentence(word + " " + to_string(type) + " " + to_string(identifier));
+        printSentence("Ok, added " + word + ".");
+      }
+    } else if(input == "remove word") {
+      printSentence("What word would you like me to forget, fooorrreeevvvvveeeerrrrr.");
+      getline(cin, input);
+      keyWordsObj.removeWord(input);
+      printSentence("Ok, removed " + input + ".");
+    } else {
+      keyWordsObj.takeInSentence(input);
+      input = convert(input);
+      cout << input << endl;
     }
   }
 
