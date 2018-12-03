@@ -14,5 +14,6 @@ Responding::Responding() {
 }
 
 void Responding::respond(int sentenceStructure, int sentenceIdentifier) {
-
+  cout << sentenceStructure << endl;
+  cout << sentenceIdentifier << endl;
 }
