@@ -215,7 +215,7 @@ void KeywordsTrie::readKeywords() {
     myfile.close();
 }
 
-
+/*
 //for testing
 int main() {
 
@@ -226,6 +226,7 @@ int main() {
 
     return 0;
 }
+*/
 
 
 
