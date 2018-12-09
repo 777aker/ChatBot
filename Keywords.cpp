@@ -138,9 +138,6 @@ void KeywordsTrie::removeWord(string word) {
     
     //once we hit the end of the word, we change it's isEnd value to establish that the word is no longer a complete word
     crawl->isEnd = false;
-
-    //then remove the word from the file
-
 }
 
 //take in the users response
