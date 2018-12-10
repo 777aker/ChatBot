@@ -25,6 +25,7 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
   verb = "";
   directObject = "";
   responseSentence = "";
+  object = "";
   question = false;
   //split the structure and put into an array
   while(sentenceStructure != 0) {
@@ -47,10 +48,12 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
   }
   //cases they said you
   if((structure[0] == NOUN && identifier[0] == 2) || (structure[1] == NOUN && identifier[1] == 2))
-    subject = "I";
+  //------------------------------------------------------------------------------------------ this should be i or me later but for now leave it so no confusion in testing
+    subject = "you";
   //cases they said i
   if((structure[0] == NOUN && identifier[0] == 3) || (structure[2] == NOUN && identifier[2] == 3))
-    subject = "you";
+  //------------------------------------------------------------------------------------------ this should be you later but for now leave it so no confusion in testing
+    subject = "i";
   //cases that they said you and i
   if(input[0] == "you" && input[1] == "and" && input[3] == "i")
     subject = "you and I";
@@ -107,9 +110,9 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
     for(int i = prepWord+2; i < structure.size(); i++) {
       directObject += input[i] + " ";
     }
-  else if(verb != "" && structure[verbWord+1] != PREPOSITION)
+  if(verb != "" && structure[verbWord+1] != PREPOSITION)
     for(int i = verbWord+1; i < structure.size(); i++) {
-      directObject += input[i];
+      object += input[i];
     }
   //this is the positivity or negativity of the sentence
   //ranges from -4 to 4
@@ -136,8 +139,8 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
     prints("Your sentence is a question asking " + input[questionWord]);
   } else
     prints("Your sentence is not a question.");
-
-  prints("Your sentences connotation is: " + connotation);
+  prints("The objects of your sentence are: " + object);
+  prints("Your sentences connotation is: " + to_string(connotation));
   prints("The words in your sentence I don't know the meaning of are: ");
   for(int i = 0; i < input.size(); i++) {
     if(structure[i] == UNKOWN) {
@@ -201,7 +204,9 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
       }
       //this is if they referred to the computer but didn't ask a question
     } else {
+      //now we gotta switch based off what verb they used
 
+      //then connotation
     }
     //this is they referred to themself
   } else if(subject == "you") {
@@ -214,11 +219,11 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
       prints("OOF, I'm not sure I can answer that.");
       //didn't ask a question
     } else {
-
+      //switch based on verb of connotation
     }
     //they used some other noun
   } else {
-    if(userInput == "whatever i want" || input == "whatever you want") {
+    if(userInput == "whatever i want" || userInput == "whatever you want") {
       prints("Haha your so clever :/  ....  I'm not amused.");
     }
     //asked a question

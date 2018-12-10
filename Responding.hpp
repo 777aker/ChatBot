@@ -24,6 +24,8 @@ string subject;
 string verb;
 //object and potentially preposition
 string directObject;
+//object of the verb too
+string object;
 //this is what it will respond with constructed out of the above strings, subject, verb, directObject
 string responseSentence;
 //boolean whether the user sent a question or not
