@@ -1,1 +1,4 @@
-Documentation is the comments. Run the program from main.cpp
+The Main.cpp takes in user input and decides how to respond to that. To either handle it itself or send it down the line if it is not a command. 
+When Keywords.cpp is made it takes in the text file keywords.txt and puts all those words into a trie. Then Main.cpp calls it when the user inputs a sentence. With that sentence it splits it up word by word, then searches the trie and gives each word its respective value. Then sends the sentence and its data to the responding object.
+Responding takes in all this sentence data and then through grammatical structure of english sentences it figures out what the subject, verb, objects of the verb, direct objects, question words, and other information from the sentence, then sends those through a bunch of ifs and switch statements to determine how to respond to what the user said. 
+Each part of the code is explained more in depth in the comments of each file. 
