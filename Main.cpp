@@ -21,7 +21,7 @@ void printSentence(string sentence) {
     this_thread::sleep_for(chrono::milliseconds(25));
     cout << c << flush;
   }
-  //end the line once done
+  //end the line once donejfda;
   cout << endl;
 }
 
@@ -48,6 +48,8 @@ int main(int argc, char* argv[]) {
   printSentence("To add a new word to what I know, type \"add word\", then follow my instructions.");
   printSentence("To remove a word I know, type \"remove word\", then follow my instructions.");
   printSentence("To stop talking, just say bye, or goodbye.");
+  printSentence("Now you may type whatever you want.");
+  cout << endl;
   //whether to quit or not
   bool quit = false;
   //now start taking in input stuff
@@ -76,30 +78,32 @@ int main(int argc, char* argv[]) {
         keyWordsObj.synonym(word, input);
         printSentence("Ok cool, thanks.");
       } else {
-        printSentence("Ok, is it a noun, verb, adjective, or adverb?");
+        printSentence("Ok, is it a noun, verb, adjective, preposition, or adverb?");
         getline(cin, input);
         if(input == "noun") {
           type = 1;
-          identifier = (rand()%6) + 2;
+          identifier = 4;
         } else if(input == "verb") {
           type = 2;
-          identifier = (rand()%9) + 1;
+          identifier = 5;
         } else if(input == "adjective") {
           type = 3;
-          printSentence("From 0 to 9, how bad or good is its connotation?");
-          printSentence("0 would be very naughty word, 9 such a compliment :).");
+          printSentence("From 1 to 9, how bad or good is its connotation?");
+          printSentence("1 would be very naughty word, 9 such a compliment :).");
           getline(cin, input);
           identifier = stoi(input);
+          if(identifier/10 != 0)
+            printSentence("I said 1 to 9 dummy. No word for you.");
         } else if(input == "adverb") {
           type = 4;
-          printSentence("From 0 to 9, how bad or good is its connotation?");
-          printSentence("0 would be very naughty word, 9 such a compliment :).");
-          getline(cin, input);
-          identifier = stoi(input);
+          identifier = 1;
+        } else if(input == "preposition") {
+          type = 4;
+          identifier = 6;
         } else {
-          printSentence("That was not an option. I'll just make it something random.");
-          type = rand()%8;
-          identifier = (rand()%8)+2;
+          printSentence("That was not an option so you don't get your word :P");
+          type = 9;
+          identifier = 9;
         }
         keyWordsObj.addWord(word, type, identifier);
         printSentence(word + " " + to_string(type) + " " + to_string(identifier));
@@ -113,7 +117,6 @@ int main(int argc, char* argv[]) {
     } else {
       keyWordsObj.takeInSentence(input);
       input = convert(input);
-      cout << input << endl;
     }
   }
 
