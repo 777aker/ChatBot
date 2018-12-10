@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
   printSentence("Hello! Welcome to Kelley's and Lara's bot thing.");
   printSentence("To add a new word to what I know, type \"add word\", then follow my instructions.");
   printSentence("To remove a word I know, type \"remove word\", then follow my instructions.");
-  printSentence("To stop talking, just say bye, or goodbye.");
+  printSentence("To stop talking, just say bye, or goodbye. PLEASE DON'T HIT BIG SCARY X ON YOUR WINDOW!!!!!");
   printSentence("Now you may type whatever you want.");
   cout << endl;
   //whether to quit or not
@@ -81,10 +81,10 @@ int main(int argc, char* argv[]) {
         printSentence("Ok, is it a noun, verb, adjective, preposition, or adverb?");
         getline(cin, input);
         if(input == "noun") {
-          type = 1;
+          type = 2;
           identifier = 4;
         } else if(input == "verb") {
-          type = 2;
+          type = 5;
           identifier = 5;
         } else if(input == "adjective") {
           type = 3;
@@ -92,10 +92,13 @@ int main(int argc, char* argv[]) {
           printSentence("1 would be very naughty word, 9 such a compliment :).");
           getline(cin, input);
           identifier = stoi(input);
-          if(identifier/10 != 0)
+          if(identifier/10 != 0) {
             printSentence("I said 1 to 9 dummy. No word for you.");
+            type = 9;
+            identifier = 9;
+          }
         } else if(input == "adverb") {
-          type = 4;
+          type = 8;
           identifier = 1;
         } else if(input == "preposition") {
           type = 4;
@@ -106,7 +109,7 @@ int main(int argc, char* argv[]) {
           identifier = 9;
         }
         keyWordsObj.addWord(word, type, identifier);
-        printSentence(word + " " + to_string(type) + " " + to_string(identifier));
+        //printSentence(word + " " + to_string(type) + " " + to_string(identifier));
         printSentence("Ok, added " + word + ".");
       }
     } else if(input == "remove word") {

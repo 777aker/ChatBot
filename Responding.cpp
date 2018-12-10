@@ -125,7 +125,7 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
   //finally lets try to find a direct object of the sentence
   if(prepWord != -1)
     for(int i = prepWord+1; i < structure.size(); i++) {
-      directObject += input[i];
+      directObject += input[i] + " ";
     }
 
   //this finds the objects of the verb
@@ -228,15 +228,15 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
   if(subject == "this")
     subject = "you";
 
-  prints("The subject of your sentence is " + subject);
-  prints("The verb of your sentence is " + verb);
+  prints("The subject of your sentence is: " + subject);
+  prints("The verb of your sentence is: " + verb);
   prints("The direct object(s) of your sentence is(are) " + directObject);
   if(question) {
     prints("Your sentence is a question asking " + input[questionWord]);
   } else
     prints("Your sentence is not a question.");
   prints("The objects of your sentence are: " + object);
-  prints("Your sentences connotation is: " + to_string(connotation));
+  prints("Your sentence connotation is: " + to_string(connotation));
   prints("The words in your sentence I don't know the meaning of are: ");
   for(int i = 0; i < input.size(); i++) {
     if(structure[i] == UNKOWN) {
@@ -372,7 +372,7 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
     //asked a question
     if(question) {
       //OOF, I'm not sure I can answer that
-      
+
       //didn't ask a question
     } else {
       //switch based on verb of connotation
@@ -387,7 +387,7 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
 
     //asked a question
     if(question) {
-      
+
       //didn't ask a question
     } else {
 
