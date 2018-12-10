@@ -371,7 +371,8 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
   else if(subject == "you and I") {
     //asked a question
     if(question) {
-      prints("OOF, I'm not sure I can answer that.");
+      //OOF, I'm not sure I can answer that
+      
       //didn't ask a question
     } else {
       //switch based on verb of connotation
@@ -386,7 +387,7 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
 
     //asked a question
     if(question) {
-      prints("That's too much and too complicated for me.");
+      
       //didn't ask a question
     } else {
 
