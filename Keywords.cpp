@@ -37,12 +37,12 @@ struct letterNode* KeywordsTrie::initializeLetterNode(char letterToAdd) {
 
     //return the created letterNode
     return letter;
-} 
+}
 
 void KeywordsTrie::findWord(string word) {
   //find word then update type and identifier to this words for use by takeInSentence
-  //wordType = the type of the word you found 
-  //wordIdentifier = the identifier of the word you found 
+  //wordType = the type of the word you found
+  //wordIdentifier = the identifier of the word you found
   //if its type is 7, then use the previous noun data not this words
 
     //we use this to navigate through the keywords trie
@@ -85,7 +85,7 @@ void KeywordsTrie::addWord(string word, int t, int i) {
         prepTrie(word, t, i);
 
         //add word to text file of keywords
-        ofstream writer("testKeywords.txt", ios::app);
+        ofstream writer("keywords.txt", ios::app);
 
         //create toAdd to ensure the format of the new word matches the keywords text file
         string toAdd = "\n" +word + " " + to_string(t) + " " + to_string(i);
@@ -110,7 +110,7 @@ void KeywordsTrie::synonym(string toAdd, string similar) {
     //we find similar to get the set the wordType and wordIdentifier
     findWord(similar);
     //then we add the new word with the same wordType and wordIdentifier as the similar word
-    addWord(toAdd, wordType, wordIdentifier);  
+    addWord(toAdd, wordType, wordIdentifier);
 }
 
 //remove a word from the keywords trie and txt file
@@ -135,7 +135,7 @@ void KeywordsTrie::removeWord(string word) {
         }
         crawl = crawl->children[index];
     }
-    
+
     //once we hit the end of the word, we change it's isEnd value to establish that the word is no longer a complete word
     crawl->isEnd = false;
 }
@@ -153,7 +153,7 @@ void KeywordsTrie::takeInSentence(string userInput) {
     stringstream ss;
     ss << userInput;
     string word;
-    
+
     sentenceStructure = 0;
     sentenceIdentifier = 0;
 
@@ -162,7 +162,7 @@ void KeywordsTrie::takeInSentence(string userInput) {
         sentenceStructure = sentenceStructure*10 + wordType;
         sentenceIdentifier = sentenceIdentifier*10 + wordIdentifier;
     }
-    responder.respond(sentenceStructure, sentenceIdentifier);
+    responder.respond(sentenceStructure, sentenceIdentifier, userInput);
 }
 
 void KeywordsTrie::prepTrie(string word, int t, int i) {
@@ -190,13 +190,13 @@ void KeywordsTrie::prepTrie(string word, int t, int i) {
 //read the key words from a file
 void KeywordsTrie::readKeywords() {
 
-    ifstream myfile("testKeywords.txt");
+    ifstream myfile("keywords.txt");
     if(myfile.is_open()) {
         //read the file
         string line;
 
         while(getline(myfile, line)) { //gives me a line
-            
+
             stringstream ss;
             ss<<line;
             string word;
@@ -218,15 +218,10 @@ void KeywordsTrie::readKeywords() {
 /*
 //for testing
 int main() {
-
     KeywordsTrie k;
     k.addWord("bananas", 2, 2);
     k.addWord("bananas", 2, 4);
     k.addWord("grapefruit", 5, 5);
-
     return 0;
 }
 */
-
-
-
