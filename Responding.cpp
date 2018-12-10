@@ -159,9 +159,9 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
       //ok if the word after the subject is and then there is more subject to subject
       if(input[i+1] == "and") {
         if(structure[i+2] == HELPER && identifier[i+2] == 2)
-          subject += input[i+1] + " " + input[i+2] + " " + input[i+3];
+          subject += " " + input[i+1] + " " + input[i+2] + " " + input[i+3];
         else
-          subject += input[i+1] + " " + input[i+2];
+          subject += " " + input[i+1] + " " + input[i+2];
       }
       //this is to check if the word before the subject is the or a or something similar
       if(i == 1) {
@@ -193,10 +193,18 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
       else if(i > 3) {
         if(structure[i-1] == HELPER && identifier[i-1] == 2) {
           if(input[i-2] == "and") {
-
+            if(structure[i-4] == HELPER && identifier[i-4] == 2)
+              subject = input[i-4] + " " + input[i-3] + " " + input[i-2] + " " + input[i-1] + " " + subject;
+            else
+              subject = input[i-3] + " " + input[i-2] + " " + input[i-1] + " " + subject;
           } else {
-
+            subject = input[i-1] + " " + subject;
           }
+        } else if(input[i-1] == "and") {
+          if(structure[i-3] == HELPER && identifier[i-3] == 2)
+            subject = input[i-3] + " " + input[i-2] + " " + input[i-1] + " " + subject;
+          else
+            subject = input[i-2] + " " + input[i-1] + " " + subject;
         }
       }
     }
@@ -213,6 +221,12 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
       }
     }
   }
+
+  //ok so finally lets see if the subject is it or that because if it is we gotta change it
+  if(subject == "it")
+    subject = previousSubject;
+  if(subject == "this")
+    subject = "you";
 
   prints("The subject of your sentence is " + subject);
   prints("The verb of your sentence is " + verb);
@@ -321,10 +335,40 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
     }
     //this is they referred to themself
   } else if(subject == "i") {
+    //now we gotta switch based off what verb they used
+    switch(identifier[verbWord]) {
+      //this is they used a verb like get buy bring, basically anything involving getting us something
+      case 2:
 
+      break;
+      //these are verbs like brought got bought
+      case 3:
 
-    //this is if they referred to both
-  } else if(subject == "you and I") {
+      break;
+      //these are things like ate
+      case 4:
+
+      break;
+      //this is they used something like have
+      case 5:
+
+      break;
+      //this is they used are or is
+      case 6:
+
+      break;
+      //this is going getting bringing, stuff like that
+      case 7:
+
+      break;
+      //this is things like want likes like
+      case 8:
+
+      break;
+    }
+  }
+  //this is if they referred to both
+  else if(subject == "you and I") {
     //asked a question
     if(question) {
       prints("OOF, I'm not sure I can answer that.");
@@ -345,17 +389,7 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
       prints("That's too much and too complicated for me.");
       //didn't ask a question
     } else {
-      //if the first word is a or the or something skip it
-      if(structure[0] == HELPER)
-        subject = input[1];
-      else
-        subject = input[0];
-      if(verb == "")
-        prints("I don't know enough words to respond to that.");
-      else {
-        //this is they used a known verb and we probably have the correct subject now
 
-      }
     }
   }
   //ok now we will reset previousSubject to be this subject for when they use things like it
