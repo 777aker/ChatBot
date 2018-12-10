@@ -112,7 +112,7 @@ void Responding::respond(int sentenceStructure, int sentenceIdentifier, string u
     }
   if(verb != "" && structure[verbWord+1] != PREPOSITION)
     for(int i = verbWord+1; i < structure.size(); i++) {
-      object += input[i];
+      object += input[i] + " ";
     }
   //this is the positivity or negativity of the sentence
   //ranges from -4 to 4
