@@ -1,0 +1,131 @@
+Hello! Welcome to Kelley's and Lara's bot thing.
+To add a new word to what I know, type "add word", then follow my instructions.
+To remove a word I know, type "remove word", then follow my instructions.
+To stop talking, just say bye, or goodbye. PLEASE DON'T HIT BIG SCARY X ON YOUR WINDOW!!!!!
+Now you may type whatever you want.
+
+add word
+What word would you like to add?
+flowers
+Is it a synonym to anything? Type yes or no please.
+no
+Ok, is it a noun, verb, adjective, preposition, or adverb?
+noun
+Ok, added flowers.
+add word
+What word would you like to add?
+plants
+Is it a synonym to anything? Type yes or no please.
+yes
+What word is it a synonym to?
+flowers
+Ok cool, thanks.
+remove word
+What word would you like me to forget, fooorrreeevvvvveeeerrrrr.
+plants
+Ok, removed plants.
+add word
+What word would you like to add?
+dummy
+Is it a synonym to anything? Type yes or no please.
+no
+Ok, is it a noun, verb, adjective, preposition, or adverb?
+adjective
+From 1 to 9, how bad or good is its connotation?
+1 would be very naughty word, 9 such a compliment :).
+3
+Ok, added dummy.
+note that in the keywords.txt those words are now added
+The subject of your sentence is: that
+The verb of your sentence is: in
+The direct object(s) of your sentence is(are)
+Your sentence is a question asking the
+The objects of your sentence are: the keywordstxt those words are now added
+Your sentence connotation is: -2
+The words in your sentence I don't know the meaning of are:
+
+this is stupid
+The subject of your sentence is: you
+The verb of your sentence is: is
+The direct object(s) of your sentence is(are)
+Your sentence is not a question.
+The objects of your sentence are: stupid
+Your sentence connotation is: -3
+The words in your sentence I don't know the meaning of are:
+
+you are stupid
+The subject of your sentence is: you
+The verb of your sentence is: are
+The direct object(s) of your sentence is(are)
+Your sentence is not a question.
+The objects of your sentence are: stupid
+Your sentence connotation is: -3
+The words in your sentence I don't know the meaning of are:
+
+I am stupid and dumb
+The subject of your sentence is: i
+The verb of your sentence is: am
+The direct object(s) of your sentence is(are)
+Your sentence is not a question.
+The objects of your sentence are: stupid and dumb
+Your sentence connotation is: -6
+The words in your sentence I don't know the meaning of are:
+
+I am a dummy
+The subject of your sentence is: i
+The verb of your sentence is: am
+The direct object(s) of your sentence is(are)
+Your sentence is not a question.
+The objects of your sentence are: a dummy
+Your sentence connotation is: -2
+The words in your sentence I don't know the meaning of are:
+
+dummy was added earlier
+The subject of your sentence is: was
+The verb of your sentence is: added
+The direct object(s) of your sentence is(are)
+Your sentence is not a question.
+The objects of your sentence are:
+Your sentence connotation is: -2
+The words in your sentence I don't know the meaning of are:
+was
+added
+earlier
+
+Jeffrey and I like pie
+The subject of your sentence is: jeffrey and i
+The verb of your sentence is: like
+The direct object(s) of your sentence is(are)
+Your sentence is not a question.
+The objects of your sentence are: pie
+Your sentence connotation is: 0
+The words in your sentence I don't know the meaning of are:
+jeffrey
+pie
+
+Jeffrey and susan are dumb
+The subject of your sentence is: jeffrey and susan
+The verb of your sentence is: are
+The direct object(s) of your sentence is(are)
+Your sentence is not a question.
+The objects of your sentence are: dumb
+Your sentence connotation is: -3
+The words in your sentence I don't know the meaning of are:
+jeffrey
+susan
+
+I am on top of the world
+The subject of your sentence is: i
+The verb of your sentence is: am
+The direct object(s) of your sentence is(are) top of the world
+Your sentence is not a question.
+The objects of your sentence are:
+Your sentence connotation is: 0
+The words in your sentence I don't know the meaning of are:
+top
+world
+
+bye
+Fine, bye.
+
+Press any key to continue . . .
