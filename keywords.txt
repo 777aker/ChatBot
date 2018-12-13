@@ -99,7 +99,6 @@ horribly 8 1
 terribly 8 1
 smart 3 7
 and 1 1
-
 flowers 2 4
 plants 2 4
 dummy 3 3

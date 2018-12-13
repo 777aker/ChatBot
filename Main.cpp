@@ -117,6 +117,8 @@ int main(int argc, char* argv[]) {
       getline(cin, input);
       keyWordsObj.removeWord(input);
       printSentence("Ok, removed " + input + ".");
+    } else if(input == "hi" || input == "hello") {
+      printSentence("Hello, how are you?")
     } else {
       keyWordsObj.takeInSentence(input);
       input = convert(input);
